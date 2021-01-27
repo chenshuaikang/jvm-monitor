@@ -145,13 +145,15 @@ JDK1.7新增，取代CMS
 
 ## 截图
 
-![](/doc/1.png)
+![](doc/main.jpg)
 
-![](doc/2.png)
+![](doc/memory.jpg)
+
+![](doc/class.jpg)
 
 Java内置监控工具：`jconsole`（终端输入命令即可打开）
 
-![](doc/3.png)
+![](doc/jconsole.jpg)
 
 ## 联系
 
