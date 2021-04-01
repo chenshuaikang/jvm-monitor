@@ -154,6 +154,9 @@ JDK1.7新增，取代CMS
 Java内置监控工具：`jconsole`（终端输入命令即可打开）
 
 ![](doc/jconsole.jpg)
+## 更新计划
+- 增加Redis监控
+- 增加SQL监控
 
 ## 联系
 
