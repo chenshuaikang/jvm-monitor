@@ -2,7 +2,7 @@ package com.imcsk.service.impl;
 
 import com.imcsk.entity.GarbageCollectorBean;
 import com.imcsk.entity.MemoryPoolBean;
-import com.imcsk.service.GarbageCollectorService;
+import com.imcsk.service.IGarbageCollectorService;
 import org.springframework.stereotype.Service;
 
 import java.lang.management.GarbageCollectorMXBean;
@@ -17,7 +17,7 @@ import java.util.List;
  * @date 2020-12-14
  */
 @Service
-public class GarbageCollectorServiceImpl implements GarbageCollectorService {
+public class GarbageCollectorServiceImpl implements IGarbageCollectorService {
 
     @Override
     public GarbageCollectorBean get() {

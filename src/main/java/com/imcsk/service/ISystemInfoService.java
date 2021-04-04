@@ -6,7 +6,7 @@ import com.imcsk.entity.SystemBean;
  * @author csk
  * @date 2020-12-14
  */
-public interface SystemInfoService {
+public interface ISystemInfoService {
 
     SystemBean get();
 }

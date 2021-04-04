@@ -1,7 +1,7 @@
 package com.imcsk.service.impl;
 
 import com.imcsk.entity.SystemBean;
-import com.imcsk.service.SystemInfoService;
+import com.imcsk.service.ISystemInfoService;
 import org.springframework.stereotype.Service;
 
 import java.lang.management.ManagementFactory;
@@ -12,7 +12,7 @@ import java.lang.management.OperatingSystemMXBean;
  * @date 2020-12-14
  */
 @Service
-public class SystemInfoServiceImpl implements SystemInfoService {
+public class SystemInfoServiceImpl implements ISystemInfoService {
 
     @Override
     public SystemBean get() {

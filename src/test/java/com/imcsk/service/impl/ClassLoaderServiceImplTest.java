@@ -1,7 +1,7 @@
 package com.imcsk.service.impl;
 
 import com.imcsk.entity.ClassLoaderBean;
-import com.imcsk.service.ClassLoaderService;
+import com.imcsk.service.IClassLoaderService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -20,11 +20,11 @@ public class ClassLoaderServiceImplTest {
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Autowired
-    private ClassLoaderService classLoaderService;
+    private IClassLoaderService IClassLoaderService;
 
     @Test
     public void get() {
-        ClassLoaderBean classLoaderBean = classLoaderService.get();
+        ClassLoaderBean classLoaderBean = IClassLoaderService.get();
         logger.info("classLoader => {}", classLoaderBean);
     }
 }

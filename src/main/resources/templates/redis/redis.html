@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Redis监控</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <div th:replace="common/css"></div>
+</head>
+<body>
+<div id="app">
+        <!-- aside -->
+        <div th:replace="common/side"></div>
+
+        <!-- container -->
+        <el-container class="main-container">
+            <!-- header -->
+            <div style="background-color: rgb(84, 92, 100);" th:replace="common/header"></div>
+            <!-- main -->
+            <el-main class="app-main">
+                <el-card>
+                    <el-alert title="Redis监控" type="success" show-icon :closable="false"></el-alert>
+                    <br/>
+                    <el-card>
+                        <div id="memory" style="display: inline-block;width:48%;"></div>
+
+                        <div id="dbsize" style="display: inline-block;width:48%;"></div>
+
+                    </el-card>
+                </el-card>
+                <br/>
+                <el-card>
+<!--                    <h3>Redis详细信息</h3>-->
+                    <el-divider content-position="left"><h3>Redis详细信息</h3></el-divider>
+
+                    <!-- 列表 -->
+                    <el-table :data="data"  ref="table" stripe size="mini" border tooltip-effect="dark" style="width: 100%">
+
+                        <el-table-column prop="key" label="名称" width="270"></el-table-column>
+                        <el-table-column prop="description" label="描述" show-overflow-tooltip></el-table-column>
+                        <el-table-column prop="value" label="参数" width="280"></el-table-column>
+
+                    </el-table>
+                </el-card>
+            </el-main>
+        </el-container>
+</div>
+<div th:replace="common/js"></div>
+<script data-th-src="@{/lib/highchart/highcharts.js}"></script>
+<script data-th-src="@{/lib/highchart/exporting.js}"></script>
+<script data-th-src="@{/lib/highchart/highcharts-zh_CN.js}"></script>
+<script type="text/javascript" th:src="@{/js/redis/redis.js}"></script>
+</body>
+</html>

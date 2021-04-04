@@ -315,6 +315,9 @@ Highcharts.setOptions({
         animation: Highcharts.svg,
         marginRight: 10,
     },
+    credits: {
+        enabled: false
+    },
     title: {
         style: {
             "font-size": "1.2rem"
@@ -324,7 +327,9 @@ Highcharts.setOptions({
         type: 'datetime',
         tickPixelInterval: 150
     },
-    global: { useUTC: false },
+    global: {
+        useUTC: false
+    },
     yAxis: {
         title: {
             text: "单位/Mb"

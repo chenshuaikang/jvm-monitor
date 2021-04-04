@@ -1,7 +1,7 @@
 package com.imcsk.service.impl;
 
 import com.imcsk.entity.ThreadBean;
-import com.imcsk.service.ThreadInfoService;
+import com.imcsk.service.IThreadInfoService;
 import org.springframework.stereotype.Service;
 
 import java.lang.management.ManagementFactory;
@@ -12,7 +12,7 @@ import java.lang.management.ThreadMXBean;
  * @date 2020-12-14
  */
 @Service
-public class ThreadInfoServiceImpl implements ThreadInfoService {
+public class ThreadInfoServiceImpl implements IThreadInfoService {
 
     @Override
     public ThreadBean get() {

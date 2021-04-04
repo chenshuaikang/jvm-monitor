@@ -1,7 +1,7 @@
 package com.imcsk.service.impl;
 
 import com.imcsk.entity.RuntimeBean;
-import com.imcsk.service.RuntimeInfoService;
+import com.imcsk.service.IRuntimeInfoService;
 import com.imcsk.utils.JSONTemplate;
 import org.springframework.stereotype.Service;
 
@@ -15,7 +15,7 @@ import java.util.List;
  * @date 2020-12-14
  */
 @Service
-public class RuntimeInfoServiceImpl implements RuntimeInfoService {
+public class RuntimeInfoServiceImpl implements IRuntimeInfoService {
 
     @Override
     public RuntimeBean get() {

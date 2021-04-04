@@ -1,7 +1,7 @@
 package com.imcsk.service.impl;
 
 import com.imcsk.entity.ClassLoaderBean;
-import com.imcsk.service.ClassLoaderService;
+import com.imcsk.service.IClassLoaderService;
 import org.springframework.stereotype.Service;
 
 import java.lang.management.ClassLoadingMXBean;
@@ -12,7 +12,7 @@ import java.lang.management.ManagementFactory;
  * @date 2020-12-14
  */
 @Service
-public class ClassLoaderServiceImpl implements ClassLoaderService {
+public class ClassLoaderServiceImpl implements IClassLoaderService {
 
     @Override
     public ClassLoaderBean get() {

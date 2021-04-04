@@ -19,6 +19,18 @@ let api = {
         gc: {
             get: '/gc/get',
             getPools: '/gc/getPools'
+        },
+    },
+
+    redis: {
+        dbsize: {
+            get: '/dbsize/get',
+        },
+        redismemory: {
+            get: '/redismemory/get'
+        },
+        redisinfo: {
+            get: '/redisinfo/get'
         }
     }
 

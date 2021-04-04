@@ -1,7 +1,7 @@
 package com.imcsk.service.impl;
 
 import com.imcsk.entity.CompilationBean;
-import com.imcsk.service.CompilationService;
+import com.imcsk.service.ICompilationService;
 import org.springframework.stereotype.Service;
 
 import java.lang.management.CompilationMXBean;
@@ -12,7 +12,7 @@ import java.lang.management.ManagementFactory;
  * @date 2020-12-14
  */
 @Service
-public class CompilationServiceImpl implements CompilationService {
+public class CompilationServiceImpl implements ICompilationService {
 
     @Override
     public CompilationBean get() {

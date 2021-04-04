@@ -65,4 +65,14 @@ public class RouterController {
     public String thread() {
         return "jvm/thread";
     }
+
+    /**
+     * redis监控页
+     *
+     * @return
+     */
+    @GetMapping("/redis")
+    public String dbsize() {
+        return "redis/redis";
+    }
 }

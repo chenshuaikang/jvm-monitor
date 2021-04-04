@@ -2,6 +2,10 @@ server:
   port: 8085
 
 spring:
+  redis:
+    host: 39.106.163.86
+    port: 6379
+    password: csk2018
 
   #thymeleaf模板引擎
   thymeleaf:
@@ -11,3 +15,4 @@ spring:
     encoding: UTF-8
     mode: LEGACYHTML5
     cache: false
+

@@ -14,6 +14,20 @@
 | ----------------------------------------------------------- |
 | ![qrcode_for_gh](http://imcsk.com/assets/images/shuaikang_chen.jpg) |
 
+## 截图
+
+![](doc/main.jpg)
+
+![](doc/memory.jpg)
+
+![](doc/class.jpg)
+
+![](doc/qrcode.jpg)
+
+Java内置监控工具：`jconsole`（终端输入命令即可打开）
+
+![](doc/jconsole.jpg)
+
 ## JMX
 
 JDK内置了一些监控JVM的API接口，就是`java.lang.management`包，其中提供了很多MXBean的接口类用来监控JVM的数据。并且JDK也内置了很多工具用于监控Java应用，其中`jconsole`就是使用JMX实现的，
@@ -143,23 +157,11 @@ JDK1.7新增，取代CMS
 
 
 
-## 截图
 
-![](doc/main.jpg)
-
-![](doc/memory.jpg)
-
-![](doc/class.jpg)
-
-Java内置监控工具：`jconsole`（终端输入命令即可打开）
-
-![](doc/jconsole.jpg)
-## 更新计划
-- 增加Redis监控
-- 增加SQL监控
 
 ## 联系
 
 - [Blog@陈言懒调](http://www.imcsk.com)
 - [ZhiHu@迟恩](https://www.zhihu.com/people/chenshuaikang)
 - [GitHub@chenshuaikang](https://github.com/chenshuaikang)
+- [Gitee@chenshuaikang](https://gitee.com/imcsk)

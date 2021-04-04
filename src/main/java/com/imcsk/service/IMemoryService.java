@@ -6,7 +6,7 @@ import com.imcsk.entity.MemoryBean;
  * @author csk
  * @date 2020-12-14
  */
-public interface MemoryService {
+public interface IMemoryService {
 
     MemoryBean get();
 }

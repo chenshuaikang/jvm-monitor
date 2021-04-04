@@ -9,7 +9,7 @@ import java.util.List;
  * @author csk
  * @date 2020-12-14
  */
-public interface GarbageCollectorService {
+public interface IGarbageCollectorService {
 
     GarbageCollectorBean get();
 

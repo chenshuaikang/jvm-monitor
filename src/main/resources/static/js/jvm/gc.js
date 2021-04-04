@@ -120,6 +120,9 @@ Highcharts.setOptions({
         animation: Highcharts.svg,
         marginRight: 10,
     },
+    credits: {
+        enabled: false
+    },
     title: {
         style: {
             "font-size": "1.2rem"
@@ -136,7 +139,9 @@ Highcharts.setOptions({
             color: "#808080"
         }]
     },
-    global: { useUTC: false },
+    global: {
+        useUTC: false
+    },
     legend: {
         enabled: false
     },

@@ -1,7 +1,7 @@
 package com.imcsk.service.impl;
 
 import com.imcsk.entity.MemoryBean;
-import com.imcsk.service.MemoryService;
+import com.imcsk.service.IMemoryService;
 import org.springframework.stereotype.Service;
 
 import java.lang.management.ManagementFactory;
@@ -13,7 +13,7 @@ import java.lang.management.MemoryUsage;
  * @date 2020-12-14
  */
 @Service
-public class MemoryServiceImpl implements MemoryService {
+public class MemoryServiceImpl implements IMemoryService {
 
     @Override
     public MemoryBean get() {
