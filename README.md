@@ -22,6 +22,8 @@
 
 ![](doc/class.jpg)
 
+![](doc/redis.jpg)
+
 Java内置监控工具：`jconsole`（终端输入命令即可打开）
 
 ![](doc/jconsole.jpg)
