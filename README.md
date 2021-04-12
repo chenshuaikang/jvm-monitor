@@ -10,9 +10,9 @@
 
 更多将在我的公众号 **陈言懒调** 中陆续发布，请持续关注！
 
-| 公众号：陈言懒调                                                  |
+| 公众号：陈言懒调                                               |
 | ----------------------------------------------------------- |
-| ![qrcode_for_gh](http://imcsk.com/assets/images/shuaikang_chen.jpg) |
+| ![](doc/qrcode.jpg) |
 
 ## 截图
 
@@ -21,8 +21,6 @@
 ![](doc/memory.jpg)
 
 ![](doc/class.jpg)
-
-![](doc/qrcode.jpg)
 
 Java内置监控工具：`jconsole`（终端输入命令即可打开）
 
