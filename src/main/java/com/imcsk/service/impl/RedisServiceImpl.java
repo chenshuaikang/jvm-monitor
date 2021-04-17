@@ -80,9 +80,13 @@ public class RedisServiceImpl implements IRedisService {
         return getData("dbsize",execute().dbSize());
     }
 
+    public Map<String, Object> getRedisCommand() {
+        return getData("dbsize",execute().info("commandstats"));
+    }
+
     private Map<String, Object> getData(String name, Object data) {
         Map<String, Object> map = new HashMap<>();
-//        map.put("create_time", (new Date()).getTime());
+        map.put("create_time", (new Date()).getTime());
         map.put(name, data);
         return map;
     }
