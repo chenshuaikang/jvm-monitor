@@ -85,7 +85,11 @@ let app = new Vue({
                                 color: "#808080"
                             }]
                         },
-
+                        tooltip: {
+                            formatter: function () {
+                                return "<b>" + this.series.name + "</b><br/>" + Highcharts.dateFormat("%Y-%m-%d %H:%M:%S", this.x) + "<br/>" + Highcharts.numberFormat(this.y, 2) + "Mb";
+                            }
+                        },
                         series: [{
                             name: "内存占用（kb）",
                             data: function () {
@@ -105,6 +109,53 @@ let app = new Vue({
                 }
             })
 
+            this.$http.get(api.redis.commandinfo.get).then(response => {
+                if (response.body.code == 200) {
+                    data = response.body.data.map(val => {
+                        var json = {}
+                        json.name = val.key
+                        json.y = parseInt(val.value)
+                        return json
+                    })
+
+                    Highcharts.chart('commandinfo', {
+                        chart: {
+                            plotBackgroundColor: null,
+                            plotBorderWidth: null,
+                            plotShadow: false,
+                            type: 'pie'
+                        },
+                        title: {
+                            text: 'Redis 命令执行情况'
+                        },
+                        tooltip: {
+                            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                        },
+                        plotOptions: {
+                            pie: {
+                                allowPointSelect: true,
+                                cursor: 'pointer',
+                                dataLabels: {
+                                    enabled: true,
+                                    format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                                    style: {
+                                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                                    }
+                                }
+                            }
+                        },
+
+                        series: [{
+                            name: 'Brands',
+                            colorByPoint: true,
+
+                            data: data
+                        }]
+                    });
+                } else {
+                    this._notify(response.body.msg, 'error');
+                }
+            })
             this.$http.get(api.redis.dbsize.get).then(response => {
                 if (response.body.code == 200) {
                     Highcharts.chart('dbsize', {
@@ -149,7 +200,11 @@ let app = new Vue({
                                 color: "#808080"
                             }]
                         },
-
+                        tooltip: {
+                            formatter: function () {
+                                return "<b>" + this.series.name + "</b><br/>" + Highcharts.dateFormat("%Y-%m-%d %H:%M:%S", this.x) + "<br/>" + Highcharts.numberFormat(this.y, 2) + "Mb";
+                            }
+                        },
                         series: [{
                             name: "keys",
                             data: function () {
@@ -190,11 +245,6 @@ Highcharts.setOptions({
 
     legend: {
         enabled: false
-    },
-    tooltip: {
-        formatter: function () {
-            return "<b>" + this.series.name + "</b><br/>" + Highcharts.dateFormat("%Y-%m-%d %H:%M:%S", this.x) + "<br/>" + Highcharts.numberFormat(this.y, 2) + "Mb";
-        }
     },
 });
 

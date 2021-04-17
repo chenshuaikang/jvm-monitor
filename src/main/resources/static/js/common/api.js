@@ -31,6 +31,9 @@ let api = {
         },
         redisinfo: {
             get: '/redisinfo/get'
+        },
+        commandinfo: {
+            get: '/commandinfo/get'
         }
     }
 
