@@ -34,8 +34,6 @@ public class RedisServiceImpl implements IRedisService {
         map.put("redis_mode", "运行模式，单机（standalone）或者集群（cluster）");
         map.put("executable", "server脚本目录");
         map.put("config_file", "配置文件目录");
-        map.put("instantaneous_input_kbps", "redis网络入口kps");
-        map.put("instantaneous_output_kbps", "redis网络出口kps");
         map.put("connected_clients", "已连接客户端的数量（不包括通过从属服务器连接的客户端）");
         map.put("uptime_in_days", "自 Redis 服务器启动以来，经过的天数");
         map.put("aof_enabled", "是否开启了aof，0-未启用，1-启用");

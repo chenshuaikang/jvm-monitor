@@ -34,6 +34,9 @@ let api = {
         },
         commandinfo: {
             get: '/commandinfo/get'
+        },
+        kbpsinfo: {
+            get: '/rediskpbs/get'
         }
     }
 
