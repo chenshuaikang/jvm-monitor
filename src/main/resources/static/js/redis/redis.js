@@ -90,6 +90,9 @@ let app = new Vue({
                                 return "<b>" + this.series.name + "</b><br/>" + Highcharts.dateFormat("%Y-%m-%d %H:%M:%S", this.x) + "<br/>" + Highcharts.numberFormat(this.y, 2) + "kb";
                             }
                         },
+                        legend: {
+                            enabled: false
+                        },
                         series: [{
                             name: "内存占用（kb）",
                             data: function () {
@@ -205,6 +208,9 @@ let app = new Vue({
                                 return "<b>" + this.series.name + "</b><br/>" + Highcharts.dateFormat("%Y-%m-%d %H:%M:%S", this.x) + "<br/>" + Highcharts.numberFormat(this.y, 0) + "个";
                             }
                         },
+                        legend: {
+                            enabled: false
+                        },
                         series: [{
                             name: "keys",
                             data: function () {
@@ -291,6 +297,16 @@ let app = new Vue({
                                 color: "#808080"
                             }]
                         },
+                        plotOptions: {
+                            line: {
+                                dataLabels: {
+                                    // 开启数据标签
+                                    enabled: true
+                                },
+                                // 关闭鼠标跟踪，对应的提示框、点击事件会失效
+                                enableMouseTracking: false
+                            }
+                        },
                         tooltip: {
                             formatter: function () {
                                 return "<b>" + this.series.name + "</b><br/>" + Highcharts.dateFormat("%Y-%m-%d %H:%M:%S", this.x) + "<br/>" + Highcharts.numberFormat(this.y, 2) + "kpbs";
@@ -307,22 +323,7 @@ let app = new Vue({
 });
 
 Highcharts.setOptions({
-
     credits: {
-        enabled: false
-    },
-    plotOptions: {
-        line: {
-            dataLabels: {
-                // 开启数据标签
-                enabled: true
-            },
-            // 关闭鼠标跟踪，对应的提示框、点击事件会失效
-            enableMouseTracking: false
-        }
-    },
-
-    legend: {
         enabled: false
     },
 
@@ -330,10 +331,8 @@ Highcharts.setOptions({
         enabled: false
     },
 
-    global: { useUTC: false },
-
-    legend: {
-        enabled: false
+    global: {
+        useUTC: false
     },
 });
 
