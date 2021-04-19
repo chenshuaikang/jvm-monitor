@@ -156,6 +156,26 @@ public class BaseDataController {
         }
     }
 
+    @GetMapping("/commandinfo/get")
+    public ResultCode getRedisCommandInfo() {
+        try {
+            return new ResultCode(200, IRedisService.getRedisCommandInfo());
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new ResultCode(500, e.getMessage());
+        }
+    }
+
+    @GetMapping("/rediskpbs/get")
+    public ResultCode getRedisKpbsInfo() {
+        try {
+            return new ResultCode(200, IRedisService.getRedisKpbs());
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new ResultCode(500, e.getMessage());
+        }
+    }
+
     @PostMapping("/queue/test")
     public String sendQueue(@RequestBody String str) {
         this.sendMessage(this.queue, str);

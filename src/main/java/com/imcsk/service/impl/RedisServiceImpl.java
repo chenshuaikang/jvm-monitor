@@ -24,6 +24,7 @@ public class RedisServiceImpl implements IRedisService {
     private RedisTemplate<String, String> redisTemplate;
 
     private static Map<String, String> map = new LinkedHashMap<>();
+    private static Map<String, String> kpbsMap = new LinkedHashMap<>();
 
     static {
         map.put("redis_version", "Redis 服务器版本");
@@ -33,12 +34,13 @@ public class RedisServiceImpl implements IRedisService {
         map.put("redis_mode", "运行模式，单机（standalone）或者集群（cluster）");
         map.put("executable", "server脚本目录");
         map.put("config_file", "配置文件目录");
-        map.put("instantaneous_input_kbps", "redis网络入口kps");
-        map.put("instantaneous_output_kbps", "redis网络出口kps");
         map.put("connected_clients", "已连接客户端的数量（不包括通过从属服务器连接的客户端）");
         map.put("uptime_in_days", "自 Redis 服务器启动以来，经过的天数");
         map.put("aof_enabled", "是否开启了aof，0-未启用，1-启用");
         map.put("role", "实例的角色，是master or slave");
+
+        kpbsMap.put("instantaneous_input_kbps", "redis网络入口kps");
+        kpbsMap.put("instantaneous_output_kbps", "redis网络出口kps");
     }
 
     private RedisConnection execute() {
@@ -80,8 +82,42 @@ public class RedisServiceImpl implements IRedisService {
         return getData("dbsize",execute().dbSize());
     }
 
-    public Map<String, Object> getRedisCommand() {
-        return getData("dbsize",execute().info("commandstats"));
+    @Override
+    public List<RedisInfo> getRedisCommandInfo() {
+
+        try {
+            List<RedisInfo> commandList = new ArrayList<>();
+            Properties commandInfo = execute().info("commandstats");
+            for (String key : commandInfo.stringPropertyNames()){
+                RedisInfo redisInfo = new RedisInfo();
+                redisInfo.setKey(key.split("_")[1]);
+                redisInfo.setValue(commandInfo.getProperty(key).split("=")[1].split(",")[0]);
+                commandList.add(redisInfo);
+            }
+            return commandList;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new ArrayList<>();
+        }
+    }
+
+    @Override
+    public List<RedisInfo> getRedisKpbs() {
+        try {
+            List<RedisInfo> list = new ArrayList<>();
+            Properties info = execute().info();
+
+            for(String key : kpbsMap.keySet()){
+                RedisInfo redisInfo = new RedisInfo();
+                redisInfo.setKey(key);
+                redisInfo.setValue(info.getProperty(key));
+                redisInfo.setDescription(kpbsMap.get(key));
+                list.add(redisInfo);
+            }
+            return list;
+        }catch (Exception e){
+            return new ArrayList<>();
+        }
     }
 
     private Map<String, Object> getData(String name, Object data) {
