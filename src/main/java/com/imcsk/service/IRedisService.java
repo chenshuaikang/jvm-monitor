@@ -31,4 +31,18 @@ public interface IRedisService {
      * @return
      */
     Map<String, Object> getRedisDbSize();
+
+    /**
+     * 获取Redis命令执行信息（info commandstats）
+     *
+     * @return
+     */
+    List<RedisInfo> getRedisCommandInfo();
+
+    /**
+     * 获取Redis命令执行信息（info commandstats）
+     *
+     * @return
+     */
+    List<RedisInfo> getRedisKpbs();
 }

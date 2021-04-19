@@ -52,6 +52,11 @@ let app = new Vue({
                                 text: "单位/次"
                             },
                         },
+                        tooltip: {
+                            formatter: function () {
+                                return "<b>" + this.series.name + "</b><br/>" + Highcharts.dateFormat("%Y-%m-%d %H:%M:%S", this.x) + "<br/>" + Highcharts.numberFormat(this.y, 0) + "次";
+                            }
+                        },
                         series: [{
                             name: "GC 次数",
                             data: (function () {
@@ -92,6 +97,11 @@ let app = new Vue({
                             title: {
                                 text: "单位/秒"
                             },
+                        },
+                        tooltip: {
+                            formatter: function () {
+                                return "<b>" + this.series.name + "</b><br/>" + Highcharts.dateFormat("%Y-%m-%d %H:%M:%S", this.x) + "<br/>" + Highcharts.numberFormat(this.y, 2) + "秒";
+                            }
                         },
                         series: [{
                             name: "GC 消耗时间",
@@ -153,11 +163,6 @@ Highcharts.setOptions({
             },
             // 关闭鼠标跟踪，对应的提示框、点击事件会失效
             enableMouseTracking: false
-        }
-    },
-    tooltip: {
-        formatter: function () {
-            return "<b>" + this.series.name + "</b><br/>" + Highcharts.dateFormat("%Y-%m-%d %H:%M:%S", this.x) + "<br/>" + Highcharts.numberFormat(this.y, 2) + "Mb";
         }
     },
 });
